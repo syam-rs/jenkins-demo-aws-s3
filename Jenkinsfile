@@ -8,11 +8,11 @@ pipeline {
   environment {
     CI = 'true'
     HOME = '.'
+    npm_config_cache = 'npm-cache'
   }
   stages {
     stage('Install Packages') {
       steps {
-        sh 'npm cache clean --force'
         sh 'npm install'
       }
     }
