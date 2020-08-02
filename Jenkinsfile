@@ -38,8 +38,8 @@ pipeline {
           }
           steps {
             withAWS(region:'ap-south-1',credentials:'Jenkins-Credential-ID-AWS') {
-              s3Delete(bucket: 'jenkins-syam', path:'**/*')
-              s3Upload(bucket: 'jenkins-syam', workingDir:'build', includePathPattern:'**/*');
+              s3Delete(bucket: 'jenkins-syam-new', path:'**/*')
+              s3Upload(bucket: 'jenkins-syam-new', workingDir:'build', includePathPattern:'**/*');
             }
             mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'syam.rs01@gmail.com')
           }
@@ -50,8 +50,8 @@ pipeline {
           }
           steps {
             withAWS(region:'ap-south-1',credentials:'Jenkins-Credential-ID-AWS') {
-              s3Delete(bucket: 'jenkins-syam', path:'**/*')
-              s3Upload(bucket: 'jenkins-syam', workingDir:'build', includePathPattern:'**/*');
+              s3Delete(bucket: 'jenkins-syam-new', path:'**/*')
+              s3Upload(bucket: 'jenkins-syam-new', workingDir:'build', includePathPattern:'**/*');
             }
             mail(subject: 'Production Build', body: 'New Deployment to Production', to: 'syam.rs01@gmail.com')
           }
